@@ -37,9 +37,10 @@
   align-items: center;
 
 }
-.show-task__item button {
+.show-task__item > * {
+  padding: 5px 0;
+  text-align: center;
   display: block;
-  height: 30px;
   margin-left: 10px;
 }
 
