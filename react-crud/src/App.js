@@ -13,7 +13,7 @@ function App() {
     const task = {
       id: todoList.length === 0 ? 1 : todoList[todoList.length-1].id+1,
       taskName:input,
-      color: "Black"
+      completed: false
     }
     setTodoList([...todoList,task])
     setInput("")
@@ -25,7 +25,7 @@ function App() {
   const completeTask = (task) => {
     todoList.map((element)=> {
       if(element.id===task.id)
-        element.color="Green"
+        element.completed=true
     })
     setTodoList([...todoList])
   }
