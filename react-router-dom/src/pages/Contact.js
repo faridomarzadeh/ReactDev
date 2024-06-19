@@ -1,3 +1,6 @@
+import {useParams} from "react-router-dom"
+
 export const Contact = () => {
-  return <h2>THIS IS CONTACT PAGE</h2>;
+  let {username} = useParams()
+  return <h2>THIS IS CONTACT PAGE for {username}</h2>;
 };
