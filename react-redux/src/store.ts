@@ -1,15 +1,24 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {} from 'react-redux';
 
-const initialState= {value: {username: ""}};
+interface UserStateValue{
+    username:string;
+}
+
+interface UserState {
+    value:UserStateValue
+}
+
+const initialState: UserState= {value: {username: ""}};
+
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        login: (state,action)=>{
+        login: (state:UserState,action:PayloadAction<UserStateValue>)=>{
             state.value = action.payload;
         },
-        logout: (state)=>{
+        logout: (state:UserState)=>{
             state.value = initialState.value;
         }
     }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../store";
 
@@ -9,7 +9,7 @@ export const Login = () =>{
     return(
         <h1>
         THIS IS LOGIN PAGE {username}
-        <input onChange={(event)=>{setNewUsername(event.target.value)}}/>
+        <input onChange={(event:React.ChangeEvent<HTMLInputElement>)=>{setNewUsername(event.target.value)}}/>
         <button onClick={()=>dispatch(login({username: newUsername}))}> Submit Login </button>
         <button onClick={() => dispatch(logout())}> Logout </button>
         </h1>
