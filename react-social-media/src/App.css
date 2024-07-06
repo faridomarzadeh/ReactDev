@@ -27,7 +27,52 @@
 .App-link {
   color: #61dafb;
 }
-
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  background-color: #5d42c7;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+.navbar__menu{
+  display: flex;
+}
+.navbar__menu-link{
+  display: block;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+  transition: all 100ms ease-in;
+}
+.navbar__menu-link:hover{
+  color: chocolate;
+}
+.navbar__user{
+  display: flex;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+.navbar__username{
+  display: block;
+}
+.navbar__user-image{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+}
+.navbar__btn{
+  color: white;
+  background-color: #5d42c7;
+  border:none;
+  width: 4rem;
+  height: 2rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
