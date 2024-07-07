@@ -16,9 +16,10 @@ export const Navbar = () => {
         <Link className="navbar__menu-link" to="/">
           Home
         </Link>
+        {user? <Link to="createpost" className="navbar__menu-link">Create Post</Link>:
         <Link className="navbar__menu-link" to="/login">
           Login
-        </Link>
+        </Link>}
       </div>
       { user &&
       <div className="navbar__user">
