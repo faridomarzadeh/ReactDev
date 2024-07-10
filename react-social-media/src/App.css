@@ -1,3 +1,17 @@
+:root{
+  --color-primary:#5d42c7;
+}
+
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body{
+  box-sizing: inherit;
+}
+
 .App {
   text-align: center;
 }
@@ -11,9 +25,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-:root{
-  --color-primary:#5d42c7;
 }
 .App-header {
   background-color: #282c34;
@@ -126,6 +137,65 @@
 }
 .form input:focus, textarea:focus{
   outline: none;
+}
+
+.post{
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 3px 10px 0px #7c7a7a61;
+  padding: 0.5rem 0 0 0;
+  margin: 2rem auto 0 auto;
+  border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+.post__title{
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+
+}
+.post__description{
+  width: 100%;
+  padding: 0 1rem 1rem 1rem;
+}
+.post__footer{
+  padding: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4fad5;
+  overflow: hidden;
+}
+.post__username{
+  display: block;
+  padding-left: 1rem;
+}
+.post__like-wrspper{
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+}
+.post__like{
+  background-color: #f4fad5;
+  outline: none;
+  border:none;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+.post__like-count{
+
+}
+.post__like-icon{
+  fill: #fff;
+  stroke: rgb(68, 68, 68);
+  stroke-width: 20;
+}
+.post__like-icon--fill{
+  fill: yellow;
 }
 @keyframes App-logo-spin {
   from {

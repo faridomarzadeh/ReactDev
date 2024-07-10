@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/Navbar';
-import { Main } from './pages/Main';
+import { Main } from './pages/main/Main';
 import { Login } from './pages/Login';
 import { CreateForm } from './pages/create-post/create-form';
 
