@@ -74,47 +74,50 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        photoUrl="pizzas/spinaci.jpg"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        price={10}
-      />
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, mashrooms"
-        price={12}
-        photoUrl="pizzas/funghi.jpg"
-      />
+      {pizzaData.length > 0 ? (
+        <ul className="pizzas">
+          {pizzaData.map((pz) => (
+            <Pizza pizza={pz} key={pz.name} />
+          ))}
+        </ul>
+      ) : (
+        <p>we're still working on our menu. Please come back later :)</p>
+      )}
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.photoUrl} alt={props.name} />
+    <li className="pizza">
+      <img src={props.pizza.photoName} alt={props.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
+        <h3>{props.pizza.name}</h3>
+        <p>{props.pizza.ingredients}</p>
+        <span>{props.pizza.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 22;
+  const openHour = 9;
+  const closeHour = 20;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
-  // if (hour >= openHour && hour <= closeHour) alert("We are currently open");
-  // else alert("Sorry, we're closed");
 
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()}. We're currently open!
+      {isOpen ? (
+        <div className="order">
+          <p>We're open until {closeHour}:00. Come visit us or order online</p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00
+        </p>
+      )}
     </footer>
   );
   //return React.createElement("footer", null, "We're currently open!");
