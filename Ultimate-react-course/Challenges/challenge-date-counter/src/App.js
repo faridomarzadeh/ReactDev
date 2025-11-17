@@ -71,12 +71,12 @@ function ShowDate({ dayCount }) {
       {dayCount == 0 && <p>{date.toDateString()}</p>}
       {dayCount > 0 && (
         <p>
-          {Math.abs(dayCount)} from today is {date.toDateString()}
+          {Math.abs(dayCount)} days from today is {date.toDateString()}
         </p>
       )}
       {dayCount < 0 && (
         <p>
-          {Math.abs(dayCount)} from today was {date.toDateString()}
+          {Math.abs(dayCount)} days ago was {date.toDateString()}
         </p>
       )}
     </div>
