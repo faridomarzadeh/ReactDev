@@ -48,7 +48,11 @@ function App() {
         >
           -
         </button>
-        <input type="number" value={count} />
+        <input
+          type="text"
+          value={count}
+          onChange={(evnt) => setCount(+evnt.target.value)}
+        />
         <button
           onClick={() => {
             setCount((prevCount) => (prevCount += step));
