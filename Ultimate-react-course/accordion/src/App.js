@@ -25,33 +25,56 @@ export default function App() {
 }
 
 function Accordion() {
+  const [openQuestion, setOpenQuestion] = useState(null);
   return (
     <div className="accordion">
       {faqs.map((item, index) => (
         <AccordionItem
           title={item.title}
-          text={item.text}
           rowNumber={index}
           key={item.title}
-        />
+          isOpen={openQuestion === index}
+          setOpenQuestion={setOpenQuestion}
+        >
+          {item.text}
+        </AccordionItem>
       ))}
+      <AccordionItem
+        key={"Test 1"}
+        rowNumber={3}
+        title={"Test 1"}
+        isOpen={openQuestion === 3}
+        setOpenQuestion={setOpenQuestion}
+      >
+        <p>Allows react developers to:</p>
+        <ul>
+          <li>Break up UI into components</li>
+          <li>Make componenets reusable</li>
+          <li>Place state efficiently</li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 }
 
-function AccordionItem({ title, text, rowNumber }) {
-  const [isOpen, setIsOpen] = useState(false);
+function AccordionItem({
+  title,
+  rowNumber,
+  isOpen,
+  setOpenQuestion,
+  children,
+}) {
   return (
     <div
       className={`item ${isOpen ? "open" : ""}`}
-      onClick={() => setIsOpen((isOpen) => !isOpen)}
+      onClick={() => setOpenQuestion(isOpen ? null : rowNumber)}
     >
       <p className="number">
         {rowNumber <= 9 ? `0${rowNumber + 1}` : `${rowNumber + 1}`}
       </p>
       <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
-      {isOpen && <div className="content-box">{text}</div>}
+      {isOpen && <div className="content-box">{children}</div>}
     </div>
   );
 }
